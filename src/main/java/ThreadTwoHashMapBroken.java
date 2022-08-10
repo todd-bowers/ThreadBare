@@ -32,6 +32,8 @@ public class ThreadTwoHashMapBroken extends Thread {
         ThreadTwoHashMapBroken tm = new ThreadTwoHashMapBroken(""+10);
 
         // What's wrong with this idea??...
+        //There's a hashmap created before the threads begin running so even though the first batch fails
+        //the base thread that contains the hashmap persists and allows the second batch to finish.
         new Thread("Run of " + 6){
             public void run(){
                 tm.runMapOfSize(6);
